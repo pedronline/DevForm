@@ -1,5 +1,6 @@
 const axios = require("axios");
 const Dev = require("../models/Dev");
+const stringToArray = require("../utils/stringToArray");
 
 // regular methods
 // index, show, store, update, destroy
@@ -22,7 +23,7 @@ module.exports = {
 
       const { name = login, avatar_url, bio } = response.data;
 
-      const techsArr = techs.split(",").map(tech => tech.trim());
+      const techsArr = stringToArray(techs);
 
       const location = {
         type: "Point",
@@ -40,5 +41,8 @@ module.exports = {
     }
 
     return res.json(dev);
-  }
+  },
+
+  async update() {}, //update tudo menos github_username
+  async destroy() {} // destruir usuario da DB
 };
