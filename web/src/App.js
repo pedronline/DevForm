@@ -3,6 +3,7 @@ import React from "react";
 import "./global.css";
 import "./App.css";
 import "./Sidebar.css";
+import "./Main.css";
 
 function App() {
   return (
@@ -32,7 +33,78 @@ function App() {
             <button type="submit">Save</button>
           </form>
         </aside>
-        <main></main>
+        <main>
+          <ul>
+            <li className="dev-item">
+              <header>
+                <img
+                  src="https://avatars0.githubusercontent.com/u/17129198?s=460&v=4"
+                  alt="pedronline"
+                />
+                <div className="user-info">
+                  <strong>PedrOnline</strong>
+                  <span>ReactJS, NodeJS</span>
+                </div>
+              </header>
+              <p>
+                ( I'm a Polymath ) => Always Looking For Knowledge And New
+                Challenges ▪ Self-taught And Motivated Web Developer
+              </p>
+              <a href="https://github.com/pedronline">Github</a>
+            </li>
+            <li className="dev-item">
+              <header>
+                <img
+                  src="https://avatars0.githubusercontent.com/u/17129198?s=460&v=4"
+                  alt="pedronline"
+                />
+                <div className="user-info">
+                  <strong>PedrOnline</strong>
+                  <span>ReactJS, NodeJS</span>
+                </div>
+              </header>
+              <p>
+                ( I'm a Polymath ) => Always Looking For Knowledge And New
+                Challenges ▪ Self-taught And Motivated Web Developer
+              </p>
+              <a href="https://github.com/pedronline">Github</a>
+            </li>
+            <li className="dev-item">
+              <header>
+                <img
+                  src="https://avatars0.githubusercontent.com/u/17129198?s=460&v=4"
+                  alt="pedronline"
+                />
+                <div className="user-info">
+                  <strong>PedrOnline</strong>
+                  <span>ReactJS, NodeJS</span>
+                </div>
+              </header>
+              <p>
+                ( I'm a Polymath ) => Always Looking For Knowledge And New
+                Challenges ▪ Self-taught And Motivated Web Developer
+              </p>
+              <a href="https://github.com/pedronline">Github</a>
+            </li>
+            <li className="dev-item">
+              <header>
+                <img
+                  src="https://avatars0.githubusercontent.com/u/17129198?s=460&v=4"
+                  alt="pedronline"
+                />
+                <div className="user-info">
+                  <strong>PedrOnline</strong>
+                  <span>ReactJS, NodeJS</span>
+                </div>
+              </header>
+              <p>
+                ( I'm a Polymath ) => Always Looking For Knowledge And New
+                Challenges ▪ Self-taught And Motivated Web Developer
+              </p>
+              <a href="https://github.com/pedronline">Github</a>
+            </li>
+          </ul>
+        </main>
       </div>
     </>
   );
