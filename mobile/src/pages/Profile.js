@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Text, View } from "react-native";
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
 export default function Profile() {
   return (
     <View>
-      <Text> textInComponent </Text>
+      <Text> Profile </Text>
     </View>
   );
 }
