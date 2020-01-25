@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Image, View, Text } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity
+} from 'react-native';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync
 } from 'expo-location';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Main({ navigation }) {
   const [currentRegion, setCurrentRegion] = useState(null);
@@ -36,27 +44,41 @@ export default function Main({ navigation }) {
   }
 
   return (
-    <MapView initialRegion={currentRegion} style={styles.map}>
-      <Marker coordinate={{ latitude: 38.7090793, longitude: -9.1365293 }}>
-        <Image
-          style={styles.avatar}
-          source={{
-            uri: 'https://avatars2.githubusercontent.com/u/17129198?v=4'
-          }}
+    <>
+      <MapView initialRegion={currentRegion} style={styles.map}>
+        <Marker coordinate={{ latitude: 38.7090793, longitude: -9.1365293 }}>
+          <Image
+            style={styles.avatar}
+            source={{
+              uri: 'https://avatars2.githubusercontent.com/u/17129198?v=4'
+            }}
+          />
+          <Callout
+            onPress={() => {
+              navigation.navigate('Profile', { github_username: 'pedronline' });
+            }}
+          >
+            <View style={styles.callout}>
+              <Text style={styles.devName}>Pedro Morais</Text>
+              <Text style={styles.devBio}>in the</Text>
+              <Text style={styles.devTechs}>HOUSE!!!</Text>
+            </View>
+          </Callout>
+        </Marker>
+      </MapView>
+      <View style={styles.searchForm}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Pesquisar"
+          placeholderTextColor="#999"
+          autoCapitalize="words"
+          autoCorrect={false}
         />
-        <Callout
-          onPress={() => {
-            navigation.navigate('Profile', { github_username: 'pedronline' });
-          }}
-        >
-          <View style={styles.callout}>
-            <Text>Pedro Morais</Text>
-            <Text>in the</Text>
-            <Text>HOUSE!!!</Text>
-          </View>
-        </Callout>
-      </Marker>
-    </MapView>
+        <TouchableOpacity onPress={() => {}} style={styles.loadButton}>
+          <MaterialIcons name={'my-location'} size={20} color="#FFF" />
+        </TouchableOpacity>
+      </View>
+    </>
   );
 }
 
@@ -73,7 +95,42 @@ const styles = StyleSheet.create({
   },
   callout: {
     flex: 1,
-    width: 100,
-    height: 100
-  }
+    width: 260
+  },
+  devName: {
+    fontWeight: 'bold',
+    fontSize: 16
+  },
+  devBio: {
+    color: '#666',
+    marginTop: 5
+  },
+  devTechs: {
+    marginTop: 5
+  },
+  searchForm: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20,
+    zIndex: 5,
+    flexDirection: 'row'
+  },
+  searchInput: {
+    flex: 1,
+    height: 50,
+    backgroundColor: '#FFF',
+    color: '#333',
+    borderRadius: 25,
+    paddingHorizontal: 20,
+    fontSize: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: {
+      width: 4,
+      height: 4
+    },
+    elevation: 2
+  },
+  loadButton: {}
 });
